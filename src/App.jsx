@@ -12,7 +12,7 @@ import Chat from './routes/Chat';
 import Redux from './routes/Redux';
 import Hooks from './routes/Hooks';
 import Class from './routes/Class';
-import Repeat from './routes/Repeat';
+import FruitArray from './routes/FruitArray';
 
 import Header from './components/Header';
 
@@ -31,7 +31,7 @@ const App = () => {
           <Route path="/redux" component={Redux}></Route>
           <Route path="/hooks" component={Hooks}></Route>
           <Route path="/class" component={Class}></Route>
-          <Route path="/repeat" component={Repeat}></Route>
+          <Route path="/array" component={FruitArray}></Route>
           <Route component={NotFound}></Route>
         </Switch>
     </Router>

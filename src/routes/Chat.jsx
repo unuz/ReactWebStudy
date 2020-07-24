@@ -27,20 +27,20 @@ export function send() {
 const Chat = () => {
     return (
         <div id="container" className="container">
-            <h1>채팅</h1>
+            <h1>Chatting</h1>
             <div id="chating" className="chating">
             </div>
             <div id="yourMsg">
                 <div className="inputTable">
                     <div>
                         <div className="inputMsg">
-                            <span className="inputMsgTitle">메시지</span>
+                            <span className="inputMsgTitle">Message</span>
                         </div>
                         <div className="inputMsg">
-                            <input id="chatting" placeholder="보내실 메시지를 입력하세요." />
+                            <input id="chatting" placeholder="Please enter a message to send." />
                         </div>
                         <div className="inputMsg">
-                            <button id="sendBtn" className="btn-send-msg" onClick={send}>보내기</button>
+                            <button id="sendBtn" className="btn-send-msg" onClick={send}>send</button>
                         </div>
                     </div>
                 </div>

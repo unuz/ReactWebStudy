@@ -30,7 +30,7 @@ const Fruit = ({ fruit, onRemove, onToggle }) => {
 
 
 
-const Try = ({ fruits, onRemove, onToggle }) => {
+const FruitList = ({ fruits, onRemove, onToggle }) => {
     return (
         <div>
             {
@@ -51,4 +51,4 @@ const Try = ({ fruits, onRemove, onToggle }) => {
     );
 };
 
-export default Try;
+export default FruitList;

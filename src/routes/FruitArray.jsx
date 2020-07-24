@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
-import Try from './Try';
+import FruitList from './FruitList';
 import CrateFruit from './CrateFruit';
 
-const Cycle = () => {
+const FruitArray = () => {
 
     const [inputs, setInputs] = useState({
         fruit: '',
@@ -61,14 +61,14 @@ const Cycle = () => {
 
     return (
         <div className="text-center">
-            <div>Repeat</div>
+            <div>Array</div>
             <CrateFruit
                 fruit={fruit}
                 taste={taste}
                 onChange={onChange}
                 onCreate={onCreate}
             />
-            <Try
+            <FruitList
                 fruits={fruits}
                 onRemove={onRemove}
                 onToggle={onToggle}
@@ -77,4 +77,4 @@ const Cycle = () => {
     );
 };
 
-export default Cycle;
+export default FruitArray;

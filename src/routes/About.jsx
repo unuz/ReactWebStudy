@@ -3,7 +3,7 @@ import React from 'react';
 const About = ({match}) => {
     return (
         <div>
-            {match.params.username}의 소개입니다.
+            About {match.params.username}
         </div>
     );
 };

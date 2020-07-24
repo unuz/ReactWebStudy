@@ -36,9 +36,9 @@ class Home extends Component {
             <div className="text-center">
                 HOME
                 <br />
-                <button onClick={this.aboutClick} className="btn-default"> 소개 </button>
+                <button onClick={this.aboutClick} className="btn-default"> About </button>
                 <button onClick={this.postClick} className="btn-default"> Post </button>
-                <button onClick={this.chatClick} className="btn-default"> 채팅 </button>
+                <button onClick={this.chatClick} className="btn-default"> Chat </button>
                 <button onClick={this.handleClick}>Click</button>
                 <button onClick={this.stateClick}>setState</button>
                 {visible && <SplitMe></SplitMe>}
