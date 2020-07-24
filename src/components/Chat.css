@@ -1,0 +1,54 @@
+*{
+    margin:0;
+    padding:0;
+  }
+
+  .container{
+    margin: 0 auto;
+  }
+
+  .container h1{
+    text-align: left;
+    padding: 5px 5px 5px 15px;
+    color: #FFBB00;
+    border-left: 3px solid #FFBB00;
+    margin-bottom: 20px;
+  }
+
+  .chating{
+    margin: 20px;
+    background-color: #000;
+    color: #fff;
+    width: 380px;
+    height: 380px;
+  }
+
+  .chating p{
+    color: #fff;
+    text-align: left;
+  }
+
+  .inputTable{
+      margin-top: 1rem;
+  }
+  .inputMsg{
+      display: inline;
+      margin-left: 20px;
+  }
+
+  .inputMsgTitle{
+    margin-right: 0.5rem;
+  }
+
+  input{
+    height: 25px;
+    margin-right: 0.5rem;
+  }
+
+  .btn-send-msg{
+    height: 2rem;
+    background: #ffdc00;
+    border: 1px solid #f0d605;
+    color: #333;
+    cursor: pointer;
+  }

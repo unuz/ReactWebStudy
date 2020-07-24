@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-function App() {
+import Home from './routes/Home';
+import About from './routes/About';
+import Posts from './routes/Posts';
+import Login from './routes/Login';
+import MyPage from './routes/MyPage';
+import Search from './routes/Search';
+import NotFound from './routes/NotFound';
+import Chat from './routes/Chat';
+import Redux from './routes/Redux';
+import Hooks from './routes/Hooks';
+import Class from './routes/Class';
+import BaseBallGame from './routes/BaseBallGame';
+
+import Header from './components/Header';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Home}></Route>
+          <Route path="/about/:username" component={About}></Route>
+          <Route path="/posts" component={Posts}></Route>
+          <Route path="/login" component={Login}></Route>
+          <Route path="/mypage" component={MyPage}></Route>
+          <Route path="/search" component={Search}></Route>
+          <Route path="/chat" component={Chat}></Route>
+          <Route path="/redux" component={Redux}></Route>
+          <Route path="/hooks" component={Hooks}></Route>
+          <Route path="/class" component={Class}></Route>
+          <Route path="/baseBallGame" component={BaseBallGame}></Route>
+          <Route component={NotFound}></Route>
+        </Switch>
+    </Router>
   );
-}
+};
 
 export default App;

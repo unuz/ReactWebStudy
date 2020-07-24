@@ -1,0 +1,44 @@
+.header {
+    background-color: #55cc77;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.item {
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: table-cell;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.item:hover{
+    background-color: #99eeac;
+}
+
+.item:active, .item.active{
+    background-color: white;
+    color: #55cc77;
+}
+
+.btn-default {
+    width: 100%;
+    background: #ffdc00;
+    border: 1px solid #f0d605;
+    color: #333;
+    padding: 20px 0px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.text-center {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.posts{
+    text-decoration: none;
+}
