@@ -71,4 +71,4 @@ const FruitList = ({ fruits, onRemove, onToggle }) => {
     );
 };
 
-export default React.memo(FruitList);
+export default React.memo(FruitList); //렌더링 한 결과물을 재사용

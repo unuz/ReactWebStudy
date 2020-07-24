@@ -56,7 +56,7 @@ const FruitArray = () => {
         }
     }, []);
 
-    const onToggle = useCallback(id => {
+    const onToggle = useCallback(id => { //특정 함수를 재사용 하기 위해 useCallback
         setFruits(fruits => fruits.map(
             fruit => fruit.id === id
                 ? { ...fruit, active: !fruit.active }
@@ -64,7 +64,7 @@ const FruitArray = () => {
         ));
     }, []);
 
-    const count = useMemo(() => CountActiveFruit(fruits), [fruits]);
+    const count = useMemo(() => CountActiveFruit(fruits), [fruits]); //연산된 값을 재사용 하기위해 useMemo
 
     return (
         <div className="text-center">
