@@ -8,9 +8,29 @@
 //         );
 //     }
 // }
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const Fruit = ({ fruit, onRemove, onToggle }) => {
+const Fruit = React.memo(({ fruit, onRemove, onToggle }) => {
+    //const { fruit, taste, id, active } //비구조할당 fruit.fruit -> fruit로 사용
+    // useEffect(()=> {
+    //     console.log('컴포넌트가 화면에 나타남');
+    //     //props -> state
+    //     //Rest API
+    //     //setInterval, setTimeout
+    //     return () => {
+    //         //clearInterval, clearTimeout
+    //         //라이버르 인스턴스 제거
+    //         console.log('컴포넌트가 화면에서 사라짐');
+    //     };
+    // }, []);
+    useEffect(()=>{
+        console.log('fruit 값이 설정됨');
+        console.log(fruit);
+        return () => {
+            console.log('fruit 값이 바뀌기 전');
+            console.log(fruit);
+        }
+    }, [fruit]);
     return (
         <div>
             <b style={{
@@ -26,7 +46,7 @@ const Fruit = ({ fruit, onRemove, onToggle }) => {
 
         </div>
     );
-}
+});
 
 
 
@@ -51,4 +71,4 @@ const FruitList = ({ fruits, onRemove, onToggle }) => {
     );
 };
 
-export default FruitList;
+export default React.memo(FruitList);
