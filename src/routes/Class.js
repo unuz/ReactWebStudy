@@ -1,6 +1,23 @@
 import React, { Component } from 'react';
 
 class Class extends Component {
+    // 옛날 방식의 함수 사용 ( this 전달 하기 위해 )
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         first: Math.ceil(Math.random() * 9),
+    //         second: Math.ceil(Math.random() * 9),
+    //         value: '',
+    //         result: ''
+    //     };
+    //     this.onChange = this.onChange.bind(this); // 이 부분을 () => 가 대신함
+    // }
+
+    // onChange(e) {
+    //     this.setState({
+    //         value: e.target.value
+    //     });
+    // }
 
     state = {
         first: Math.ceil(Math.random() * 9),
