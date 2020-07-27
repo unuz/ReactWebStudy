@@ -22,7 +22,7 @@ const ResponseCheck = memo(() => {
             setMessage('Click when it is green');
 
         } else if (state === 'ready') {
-            clearTimeout(timeOut.current);
+            clearTimeout(timeOut.current); //setTime 초기화
             setState('waitting');
             setMessage('You are impatient');
         } else if (state === 'now') {
