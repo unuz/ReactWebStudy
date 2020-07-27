@@ -13,6 +13,7 @@ import Redux from './routes/Redux';
 import Hooks from './routes/Hooks';
 import Class from './routes/Class';
 import FruitArray from './routes/FruitArray';
+import NumberBaseball from './routes/NumberBaseball';
 
 import Header from './components/Header';
 
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="/hooks" component={Hooks}></Route>
           <Route path="/class" component={Class}></Route>
           <Route path="/array" component={FruitArray}></Route>
+          <Route path="/baseball" component={NumberBaseball}></Route>
           <Route component={NotFound}></Route>
         </Switch>
     </Router>
