@@ -15,6 +15,7 @@ import Class from './routes/Class';
 import FruitArray from './routes/FruitArray';
 import NumberBaseball from './routes/NumberBaseball';
 import ResponseCheck from './routes/ResponseCheck';
+import RSCGame from './routes/RSPGame';
 
 import Header from './components/Header';
 
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="/array" component={FruitArray}></Route>
           <Route path="/baseball" component={NumberBaseball}></Route>
           <Route path="/response" component={ResponseCheck}></Route>
+          <Route path="/rscgame" component={RSCGame}></Route>
           <Route component={NotFound}></Route>
         </Switch>
     </Router>

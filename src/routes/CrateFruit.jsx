@@ -5,18 +5,18 @@ const CrateFruit = ({ fruit, taste, onChange, onCreate }) => {
         <div>
             <input
                 name="fruit"
-                placeholder="과일"
+                placeholder="fruit"
                 onChange={onChange}
                 value={fruit}
             />
 
             <input
                 name="taste"
-                placeholder="맛"
+                placeholder="taste"
                 onChange={onChange}
                 value={taste}
             />
-            <button onClick={onCreate}>추가</button>
+            <button onClick={onCreate}>insert</button>
         </div>
     );
 };

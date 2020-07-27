@@ -42,7 +42,7 @@ const Fruit = React.memo(({ fruit, onRemove, onToggle }) => {
                 {fruit.fruit}
             </b>
             <span> : {fruit.taste}</span>
-            <button onClick={() => onRemove(fruit.id)}> 삭제</button>
+            <button onClick={() => onRemove(fruit.id)}>delete</button>
 
         </div>
     );

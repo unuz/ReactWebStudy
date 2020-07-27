@@ -13,11 +13,11 @@ const NumberBaseball = memo(() => { //리렌더링을 막기위해 memo
     const onSubmit = (e) => {
         e.preventDefault();
         if (value === answer.join('')) {
-            setResult('홈런!');
+            setResult('homer!');
             setTryies((prevTries) => {
-                return [...prevTries, { try: value, result: '홈런!' }]
+                return [...prevTries, { try: value, result: 'homer!' }]
             });
-            alert('게임을 다시 시작합니다!');
+            alert('Restart the game!');
             setValue('');
             setAnswer(getNumbers());
             setTryies([]);
@@ -26,8 +26,8 @@ const NumberBaseball = memo(() => { //리렌더링을 막기위해 memo
             let strike = 0;
             let ball = 0;
             if (tryies.length >= 9) {
-                setResult('10번 넘게 틀려서 실패!! 답은' + answer + '였습니다.');
-                alert('게임을 다시 시작합니다.');
+                setResult('Failed because it was wrong more than 10 times!! answer is ' + answer);
+                alert('Restart the game');
                 setValue('');
                 setAnswer(getNumbers());
                 setTryies([]);
@@ -39,7 +39,7 @@ const NumberBaseball = memo(() => { //리렌더링을 막기위해 memo
                         ball += 1;
                     }
                 }
-                setTryies((prevTries) => [...prevTries, { try: value, result: strike + '스트라이크, ' + ball + '볼입니다.' }]);
+                setTryies((prevTries) => [...prevTries, { try: value, result: strike + 'strike, ' + ball + 'ball.' }]);
                 setValue('');
                 setResult('');
             }
@@ -60,7 +60,7 @@ const NumberBaseball = memo(() => { //리렌더링을 막기위해 memo
                     <input ref={inputRef} maxLength={4} value={value} onChange={onChange} />
                 </form>
             </div>
-            <div>시도 : {tryies.length}</div>
+            <div>Try : {tryies.length}</div>
             <ul>
                 {tryies.map((v, i) => {
                     return (

@@ -38,7 +38,7 @@ class Class extends Component {
             this.setState((prevState) => {
                 //이전 상태값으로 새 상태값을 만들어주는 경우 함수로 사용
                 return {
-                    result: '정답 : ' + prevState.first + ' * ' + prevState.second + ' = ' + prevState.first * prevState.second,
+                    result: 'answer : ' + prevState.first + ' * ' + prevState.second + ' = ' + prevState.first * prevState.second,
                     first: Math.ceil(Math.random() * 9),
                     second: Math.ceil(Math.random() * 9),
                     value: '',
@@ -47,7 +47,7 @@ class Class extends Component {
             this.input.focus();
         } else {
             this.setState({
-                result: '땡',
+                result: 'Wrong answer',
                 value: '',
             });
             this.input.focus();
@@ -61,12 +61,12 @@ class Class extends Component {
     render() {
         return (
             <div className="text-center">
-                <div>Class Component를 이용한 구구단!</div>
+                <div>Class Component gugudan!</div>
                 <br />
                 <div> {this.state.first} * {this.state.second} = ? </div>
                 <form onSubmit={this.onSubmit}>
                     <input ref={this.inputRef} onChange={this.onChange} type="number" value={this.state.value} />
-                    <button>입력</button>
+                    <button>input</button>
                 </form>
                 <br />
                 <div id="result">{this.state.result}</div>

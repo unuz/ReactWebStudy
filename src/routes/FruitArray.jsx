@@ -25,11 +25,11 @@ const FruitArray = () => {
     }, [inputs]);
 
     const [fruits, setFruits] = useState([
-        { id: 1, fruit: '사과', taste: '빨개', active: true },
-        { id: 2, fruit: '바나나', taste: '맛있어', active: false },
-        { id: 3, fruit: '복숭아', taste: '딱복', active: false },
-        { id: 4, fruit: '수박', taste: '시원해', active: false },
-        { id: 5, fruit: '참외', taste: '오이맛', active: false }
+        { id: 1, fruit: 'apple', taste: 'red', active: true },
+        { id: 2, fruit: 'banana', taste: 'delicious', active: false },
+        { id: 3, fruit: 'peach', taste: 'fresh', active: false },
+        { id: 4, fruit: 'watermelon', taste: 'sweet', active: false },
+        { id: 5, fruit: 'yellowwatermelon', taste: 'cool', active: false }
     ]);
 
 
@@ -50,7 +50,7 @@ const FruitArray = () => {
     }, [inputs]);
 
     const onRemove = useCallback(id => {
-        const del = window.confirm('삭제하시겠습니까?');
+        const del = window.confirm('Are you sure you want to delete?');
         if (del) {
             setFruits(fruits => fruits.filter(fruit => fruit.id !== id));
         }
@@ -80,7 +80,7 @@ const FruitArray = () => {
                 onRemove={onRemove}
                 onToggle={onToggle}
             />
-            <div>{count}</div>
+            <div>select : {count}</div>
         </div>
     );
 };

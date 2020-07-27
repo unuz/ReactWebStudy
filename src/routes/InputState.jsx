@@ -28,11 +28,11 @@ const InputState = () => {
 
     return (
         <div>
-            <input name="name" placeholder="이름" onChange={onChange} value={name} ref={nameInput}></input>
-            <input name="nickname" placeholder="닉네임" onChange={onChange} value={nickname}></input>
-            <button onClick={onReset}>초기화</button>
+            <input name="name" placeholder="name" onChange={onChange} value={name} ref={nameInput}></input>
+            <input name="nickname" placeholder="nickname" onChange={onChange} value={nickname}></input>
+            <button onClick={onReset}>reset</button>
             <div>
-                <b>값</b>{name} ({nickname})
+                <b>result</b>{name} ({nickname})
             </div>
         </div>
     );

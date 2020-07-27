@@ -3,9 +3,10 @@ import '../components/Response.css';
 
 const ResponseCheck = memo(() => {
     const [state, setState] = useState('waitting');
-    const [message, setMessage] = useState('클릭해서 시작하세요');
+    const [message, setMessage] = useState('Click to start');
     const [result, setResult] = useState([]);
 
+    //화면에 영향을 주지 않는 변수는 useRef로 선언
     const timeOut = useRef(null);
     const startTime = useRef();
     const endTime = useRef();
@@ -14,23 +15,24 @@ const ResponseCheck = memo(() => {
         if (state === 'waitting') {
             timeOut.current = setTimeout(() => {
                 setState('now');
-                setMessage('지금 클릭!!!');
+                setMessage('Now Click!!!');
                 startTime.current = new Date();
             }, Math.floor(Math.random() * 1000) + 2000);
             setState('ready');
-            setMessage('초록색이 되면 클릭하세요');
+            setMessage('Click when it is green');
 
         } else if (state === 'ready') {
             clearTimeout(timeOut.current);
             setState('waitting');
-            setMessage('성급하시네요');
+            setMessage('You are impatient');
         } else if (state === 'now') {
             endTime.current = new Date();
             setState('waitting');
-            setMessage('클릭해서 시작하세요');
+            setMessage('Click to start');
             setResult((prevResult) => {
                 return [...prevResult, endTime.current - startTime.current];
             });
+            console.log('Reaction rate : ' + (endTime.current - startTime.current) + 'ms');
         }
     };
 
@@ -44,7 +46,7 @@ const ResponseCheck = memo(() => {
                 ? null
                 :
                 <>
-                    <div>평균 시간 : {result.reduce((a, c) => a + c) / result.length}ms</div>
+                    <div>Average Time : {result.reduce((a, c) => a + c) / result.length}ms</div>
                     <button onClick={onClickReset}>reset</button>
                 </>
         );

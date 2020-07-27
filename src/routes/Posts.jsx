@@ -18,10 +18,10 @@ const Posts = () => {
             <Link to="/class" className="posts">Class Gugudan</Link><br />
             <Link to="/hooks" className="posts">Hooks Gugudan</Link><br />
             <Link to="/array" className="posts">Array</Link><br />
-            <Link to="/baseball" className="posts">NumberBaseballGame</Link><br />
+            <Link to="/baseball" className="posts">Number Baseball Game</Link><br />
             <Link to="/response" className="posts">ResponseCheck</Link><br />
+            <Link to="/rscgame" className="posts">Rock Scissors Paper Game</Link><br />
             <Link to="/redux" className="posts">Redux</Link><br />
-            
             <Route path="/posts/:title" component={Post}></Route>
         </div>
     );

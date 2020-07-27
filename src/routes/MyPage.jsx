@@ -9,7 +9,7 @@ const MyPage = () => {
             {
                 !logged && <Redirect to="/login/" />
             }
-            마이페이지
+            My page
         </div>
     );
 };

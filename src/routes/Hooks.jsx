@@ -15,13 +15,13 @@ const Hooks = () => {
     const onSubmitForm = (e) => {
         e.preventDefault();
         if (parseInt(value) === first * second) {
-            setResult('정답 : ' + first + ' * ' + second + ' = ' + first * second);
+            setResult('answer : ' + first + ' * ' + second + ' = ' + first * second);
             setFirst(Math.ceil(Math.random() * 9));
             setSecond(Math.ceil(Math.random() * 9));
             setValue('');
             inputRef.current.focus();
         } else {
-            setResult('땡 : ' + value);
+            setResult('Wrong answer : ' + value);
             setValue('');
             inputRef.current.focus();
         }
@@ -29,12 +29,12 @@ const Hooks = () => {
 
     return (
         <div className="text-center">
-            <div>Hooks를 이용한 구구단!</div>
+            <div>Hooks gugudan!</div>
             <br />
             <div> {first} * {second} = ? </div>
             <form onSubmit={onSubmitForm}>
                 <input ref={inputRef} onChange={onChangeInput} type="number" value={value} />
-                <button>입력</button>
+                <button>input</button>
             </form>
             <br />
             <div id="result">{result}</div>
