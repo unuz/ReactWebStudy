@@ -24,7 +24,7 @@ const ResponseCheck = memo(() => {
         } else if (state === 'ready') {
             clearTimeout(timeOut.current); //setTime 초기화
             setState('waitting');
-            setMessage('You are impatient');
+            setMessage(`You are impatient`);
         } else if (state === 'now') {
             endTime.current = new Date();
             setState('waitting');
