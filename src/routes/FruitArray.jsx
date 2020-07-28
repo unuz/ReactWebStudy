@@ -1,12 +1,13 @@
 import React, { useReducer, useRef, useCallback, useMemo } from 'react';
 import FruitList from './FruitList';
 import CrateFruit from './CrateFruit';
+import useInputs from '../js/useInput'
 
 const initialState = {
-    inputs: {
-        fruit: '',
-        taste: '',
-    },
+    // inputs: {
+    //     fruit: '',
+    //     taste: '',
+    // },
     fruits: [
         { id: 1, fruit: 'apple', taste: 'red', active: true },
         { id: 2, fruit: 'banana', taste: 'delicious', active: false },
@@ -23,14 +24,14 @@ function CountActiveFruits(fruits) {
 
 function reducer(state, action) {
     switch (action.type) {
-        case 'CHANGE_INPUT':
-            return {
-                ...state,
-                inputs: {
-                    ...state.inputs,
-                    [action.name]: action.value
-                }
-            };
+        // case 'CHANGE_INPUT':
+        //     return {
+        //         ...state,
+        //         inputs: {
+        //             ...state.inputs,
+        //             [action.name]: action.value
+        //         }
+        //     };
         case 'CREATE_FRUIT':
             return {
                 inputs: initialState.inputs,
@@ -119,18 +120,23 @@ const FruitArray = () => {
     // const count = useMemo(() => CountActiveFruit(fruits), [fruits]); //연산된 값을 재사용 하기위해 useMemo
 
     const [state, dispatch] = useReducer(reducer, initialState);
-    const { fruits } = state;
-    const { fruit, taste } = state.inputs;
+    // const { fruit, taste } = state.inputs;
+    const [form, onChange, reset] = useInputs({
+        fruit: '',
+        taste: '',
+    });
+    const { fruit, taste } =  form;
     const nextId = useRef(6);
+    const { fruits } = state;
 
-    const onChange = useCallback(e => {
-        const { name, value } = e.target;
-        dispatch({
-            type: 'CHANGE_INPUT',
-            name,
-            value
-        });
-    }, []);
+    // const onChange = useCallback(e => {
+    //     const { name, value } = e.target;
+    //     dispatch({
+    //         type: 'CHANGE_INPUT',
+    //         name,
+    //         value
+    //     });
+    // }, []);
 
     const onCreate = useCallback(() => {
         dispatch({
@@ -142,7 +148,8 @@ const FruitArray = () => {
             }
         });
         nextId.current += 1;
-    }, [fruit, taste]);
+        reset();
+    }, [fruit, taste, reset]);
 
     const onToggle = useCallback(id => {
         dispatch({
