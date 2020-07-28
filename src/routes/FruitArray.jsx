@@ -1,4 +1,4 @@
-import React, { useReducer, useRef, useCallback, useMemo } from 'react';
+import React, { useReducer, useRef, useCallback, useMemo, createContext } from 'react';
 import FruitList from './FruitList';
 import CrateFruit from './CrateFruit';
 import useInputs from '../js/useInput'
@@ -55,6 +55,8 @@ function reducer(state, action) {
             throw new Error('Unhandler action');
     }
 }
+
+export const UserDispatch = createContext(null);
 
 const FruitArray = () => {
     // const CountActiveFruit = (fruits) => {
@@ -125,7 +127,7 @@ const FruitArray = () => {
         fruit: '',
         taste: '',
     });
-    const { fruit, taste } =  form;
+    const { fruit, taste } = form;
     const nextId = useRef(6);
     const { fruits } = state;
 
@@ -151,20 +153,6 @@ const FruitArray = () => {
         reset();
     }, [fruit, taste, reset]);
 
-    const onToggle = useCallback(id => {
-        dispatch({
-            type: 'TOGGLE_FRUIT',
-            id
-        });
-    }, []);
-
-    const onRemove = useCallback(id => {
-        dispatch({
-            type: 'REMOVE_FRUIT',
-            id
-        });
-    }, []);
-
     const count = useMemo(() => CountActiveFruits(fruits), [fruits]);
 
     return (
@@ -185,17 +173,17 @@ const FruitArray = () => {
         // </div>
         <div className="text-center">
             <div>Array</div>
-            <CrateFruit
-                fruit={fruit}
-                taste={taste}
-                onChange={onChange}
-                onCreate={onCreate}
-            />
-            <FruitList
-                fruits={fruits}
-                onToggle={onToggle}
-                onRemove={onRemove}
-            />
+            <UserDispatch.Provider value={dispatch}>
+                <CrateFruit
+                    fruit={fruit}
+                    taste={taste}
+                    onChange={onChange}
+                    onCreate={onCreate}
+                />
+                <FruitList
+                    fruits={fruits}
+                />
+            </UserDispatch.Provider>
             <div>select : {count}</div>
         </div>
     );

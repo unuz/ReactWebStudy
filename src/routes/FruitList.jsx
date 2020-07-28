@@ -50,7 +50,7 @@ const Fruit = React.memo(({ fruit, onRemove, onToggle }) => {
 
 
 
-const FruitList = ({ fruits, onRemove, onToggle }) => {
+const FruitList = ({ fruits }) => {
     return (
         <div>
             {
@@ -61,8 +61,6 @@ const FruitList = ({ fruits, onRemove, onToggle }) => {
                         <Fruit
                             key={fruit.id}
                             fruit={fruit}
-                            onRemove={onRemove}
-                            onToggle={onToggle}
                         />
                     )
                 )

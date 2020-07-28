@@ -21,8 +21,9 @@ import Header from './components/Header';
 
 const App = () => {
   return (
+    
     <Router>
-        <Header />
+      <Header />
         <Switch>
           <Route exact path="/" component={Home}></Route>
           <Route path="/about/:username" component={About}></Route>
@@ -40,7 +41,7 @@ const App = () => {
           <Route path="/rscgame" component={RSCGame}></Route>
           <Route component={NotFound}></Route>
         </Switch>
-    </Router>
+      </Router>
   );
 };
 
