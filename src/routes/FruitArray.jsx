@@ -2,7 +2,6 @@ import React, { useReducer, useRef, useCallback, useMemo } from 'react';
 import FruitList from './FruitList';
 import CrateFruit from './CrateFruit';
 
-
 const initialState = {
     inputs: {
         fruit: '',
@@ -48,16 +47,9 @@ function reducer(state, action) {
             };
         case 'REMOVE_FRUIT':
             const del = window.confirm('Are you sure you want to delete?');
-            if (!del) {
-                return {
-                    ...state
-                }
-            } else {
-                return {
-                    ...state,
-                    fruits: state.fruits.filter(fruit => fruit.id !== action.id)
-                };
-            }
+            return (del)
+                ? { ...state, fruits: state.fruits.filter(fruit => fruit.id !== action.id) }
+                : { ...state }
         default:
             throw new Error('Unhandler action');
     }
@@ -125,7 +117,6 @@ const FruitArray = () => {
     // }, []);
 
     // const count = useMemo(() => CountActiveFruit(fruits), [fruits]); //연산된 값을 재사용 하기위해 useMemo
-
 
     const [state, dispatch] = useReducer(reducer, initialState);
     const { fruits } = state;
