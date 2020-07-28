@@ -21,4 +21,4 @@ const CrateFruit = ({ fruit, taste, onChange, onCreate }) => {
     );
 };
 
-export default CrateFruit;
+export default React.memo(CrateFruit);
