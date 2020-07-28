@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { memo, useState, useRef, useEffect, useCallback } from 'react';
 import '../components/RSP.css';
 
 const rspCoords = {
@@ -19,15 +19,14 @@ const computerChoice = (imgCoord) => {
     })[0];
 };
 
-const RSPGame = () => {
+const RSPGame = memo(() => {
     const [result, setResult] = useState('');
     const [imgCoord, setImgCoord] = useState(rspCoords.rock);
     const [score, setSorce] = useState(0);
 
     const interval = useRef();
 
-    const changeHand = () => {
-        const { imgCoord } = this.state;
+    const changeHand = useCallback(() => {
         if (imgCoord === rspCoords.rock) {
             setImgCoord(rspCoords.scissor);
         } else if (imgCoord === rspCoords.scissor) {
@@ -35,10 +34,17 @@ const RSPGame = () => {
         } else if (imgCoord === rspCoords.paper) {
             setImgCoord(rspCoords.rock);
         }
-    };
+    }, [imgCoord]);
+    
+    useEffect(() => { //componentDidMount, componentDidUpdate 역할(1:1대응은 아님)
+        interval.current = setInterval(changeHand, 100);
+        return () => { //componentWillUnmount 역할
+            clearInterval(interval.current);
+        };
+    }, [changeHand]);
+    
 
     const onClickBtn = (choice) => () => {
-        const { imgCoord } = this.state;
         clearInterval(interval.current); //interval 초기화
         const myScore = scores[choice];
         const cpuScore = scores[computerChoice(imgCoord)];
@@ -53,7 +59,7 @@ const RSPGame = () => {
             setSorce((prevScore) => prevScore + 1);
         }
         setTimeout(() => {
-            interval = setInterval(changeHand, 100);
+            interval.current = setInterval(changeHand(), 100);
         }, 1000);
     };
 
@@ -68,6 +74,6 @@ const RSPGame = () => {
             <div>현재 {score}점</div>
         </div>
     );
-}
+});
 
 export default RSPGame;
